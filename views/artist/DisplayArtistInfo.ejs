@@ -1,0 +1,40 @@
+<% include ../partials/header.ejs %>
+<% if(rs.length > 0) { %>
+<h1>Artist Info</h1>
+
+<table border="1">
+    <tr><th>Name</th><th>Profile</th></tr>
+    <tr>
+        <td><%= rs[0].name %></td>
+        <td><%= rs[0].profile %></td>
+    </tr>
+</table>
+
+<% if(trackResults.length > 0) { %>
+<br /><h1>Tracks By This Artist</h1>
+<table border="1">
+    <tr><th>Title</th><th>Length</th><th>Genre</th><th>Album</th><th>Label</th></tr>
+    <% for (var i=0; trackResults.length > i; i++) { %>
+    <tr>
+        <% var title = trackResults[i].title; %>
+        <% var length = trackResults[i].length; %>
+        <% var genre = trackResults[i].genre; %>
+        <% var album = trackResults[i].album; %>
+        <% var label = trackResults[i].label; %>
+
+        <td><%= title %></td>
+        <td><%= length %></td>
+        <td><%= genre %></td>
+        <td><%= album %></td>
+        <td><%= label %></td>
+    </tr>
+    <% } %>
+</table>
+<% } %>
+
+
+<% } else { %>
+    No artist matched this name <%= name %>
+<% } %>
+
+<% include ../partials/footer.ejs %>

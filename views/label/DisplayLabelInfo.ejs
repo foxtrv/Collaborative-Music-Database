@@ -1,0 +1,17 @@
+<% include ../partials/header.ejs %>
+<% if(rs.length > 0) { %>
+<h1>Record Label Info</h1>
+
+<table border="1">
+    <tr><th>Name</th><th>Genres</th></tr>
+    <tr>
+        <td><%= rs[0].name %></td>
+        <td><%= rs[0].genres %></td>
+    </tr>
+</table>
+
+<% } else { %>
+No record label matched this name <%= name %>
+<% } %>
+
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,18 @@
+<% include ../partials/header.ejs %>
+<h1>Playlists</h1>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Playlist</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/playlist/?name=<%= rs[i].name %>"> <%= rs[i].name %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No playlists are entered into the playlist database table.
+    <% } %>
+</div>
+<br /><a href="/playlist/create">Create New Playlist</a>
+<% include ../partials/footer.ejs %>

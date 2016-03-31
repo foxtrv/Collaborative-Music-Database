@@ -1,0 +1,19 @@
+<% include ../partials/header.ejs %>
+<h1>Albums</h1>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Name</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/Account/?account_id=<%= rs[i].account_id %>"> <%= rs[i].username %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No accounts are entered into the Account database table.
+    <% } %>
+</div>
+<a href="/signup">Create New Account</a>
+
+<% include ../partials/footer.ejs %>

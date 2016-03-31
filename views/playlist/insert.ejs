@@ -1,0 +1,21 @@
+<% include ../partials/header.ejs %>
+
+<h1>Insert Into <%= playlist_info.name %></h1>
+<form action="./saveInsert" class="col-md-4">
+    <select id="name" name="name" class="form-control">
+        <% trackResults.forEach(function(entry) { %>
+        <% var name = entry.name %>
+
+        <option value="<%= entry.name %>"><%= name %></option>
+        <% }); %>
+    </select>
+
+    <input type="hidden" name="title" id="title" value="<%= playlist_info.title %>" />
+    <input type="hidden" name="artist" id="artist" value="<%= playlist_info.artist %>" />
+    <input type="hidden" name="username" id="username" value="<%= user.username %>" />
+
+    <br />
+    <input type="submit" class="btn btn-primary" />
+</form>
+
+<% include ../partials/footer.ejs %>

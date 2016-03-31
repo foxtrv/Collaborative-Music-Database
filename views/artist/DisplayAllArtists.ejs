@@ -1,0 +1,18 @@
+<% include ../partials/header.ejs %>
+<h1>Artists</h1>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Artist Name</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/artist/?name=<%= rs[i].name %>"> <%= rs[i].name %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No artists are entered into the artist database table.
+    <% } %>
+</div>
+
+<% include ../partials/footer.ejs %>

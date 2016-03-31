@@ -1,0 +1,41 @@
+<% include ../partials/header.ejs %>
+<% if(rs.length > 0) { %>
+<h1>Album Info</h1>
+<table border="1">
+    <tr><th>Title</th><th>Artist</th><th>Year</th><th>Label</th><th>Number of Tracks</th></tr>
+    <tr>
+        <td><%= rs[0].title %></td>
+        <td><%= rs[0].artist %></td>
+        <td><%= rs[0].year %></td>
+        <td><%= rs[0].label %></td>
+        <td><%= rs[0].num_tracks %></td>
+    </tr>
+</table>
+
+<% if(trackResults.length > 0) { %>
+<br /><h1>Tracks</h1>
+<table border="1">
+    <tr><th>Title</th><th>Artist</th><th>Length</th><th>Genre</th><th>Label</th></tr>
+    <% for (var i=0; trackResults.length > i; i++) { %>
+    <tr>
+        <% var title = trackResults[i].title; %>
+        <% var artist = trackResults[i].artist; %>
+        <% var length = trackResults[i].length; %>
+        <% var genre = trackResults[i].genre; %>
+        <% var label = trackResults[i].label; %>
+
+        <td><%= title %></td>
+        <td><%= artist %></td>
+        <td><%= length %></td>
+        <td><%= genre %></td>
+        <td><%= label %></td>
+    </tr>
+    <% } %>
+</table>
+<% } %>
+
+<% } else { %>
+No Track matched this track_id <%= track_id %>
+<% } %>
+
+<% include ../partials/footer.ejs %>

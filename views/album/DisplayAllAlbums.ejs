@@ -1,0 +1,18 @@
+<% include ../partials/header.ejs %>
+<h1>Albums</h1>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Album Title</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/album/?album_id=<%= rs[i].album_id %>"> <%= rs[i].title %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No albums are entered into the album database table.
+    <% } %>
+</div>
+
+<% include ../partials/footer.ejs %>

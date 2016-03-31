@@ -1,0 +1,11 @@
+<% include ../partials/header.ejs %>
+<% if(rs.length > 0) { %>
+<h1>User Account Info</h1>
+Name: <%= rs[0].username %><br />
+Email: <%= rs[0].email %><br />
+Bio: <%= rs[0].biography %>
+<% } else { %>
+No account matched this account_id <%= account_id %>.
+<% } %>
+
+<% include ../partials/footer.ejs %>

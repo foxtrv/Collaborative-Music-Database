@@ -1,0 +1,22 @@
+<% include ../partials/header.ejs %>
+<% if(rs.length > 0) { %>
+<h1>Track Info</h1>
+<table border="1">
+    <tr><th>Title</th><th>Artist</th><th>Length</th><th>Genre</th><th>Label</th><th>Added By</th></tr>
+    <tr>
+        <td><%= rs[0].title %></td>
+        <td><%= rs[0].artist %></td>
+        <td><%= rs[0].length %></td>
+        <td><%= rs[0].genre %></td>
+        <td><%= rs[0].label %></td>
+        <td><%= rs[0].username %></td>
+    </tr>
+</table>
+<% } else { %>
+    No Track matched this track_id <%= track_id %>
+<% } %>
+
+<br />>><a href="../playlist/insert?title=<%= rs[0].title %>&artist=<%= rs[0].artist %>">Insert Into Playlist</a><<
+<br />>><a href="/track/insert">Insert New Track</a><<
+
+<% include ../partials/footer.ejs %>

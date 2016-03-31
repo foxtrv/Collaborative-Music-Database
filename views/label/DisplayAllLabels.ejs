@@ -1,0 +1,18 @@
+<% include ../partials/header.ejs %>
+<h1>Record Labels</h1>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Record Label</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/label/?name=<%= rs[i].name %>"> <%= rs[i].name %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No record labels are entered into the record label database table.
+    <% } %>
+</div>
+
+<% include ../partials/footer.ejs %>

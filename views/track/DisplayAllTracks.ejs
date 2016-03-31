@@ -1,0 +1,21 @@
+<% include ../partials/header.ejs %>
+<h1>Tracks</h1>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Title</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/track/?track_id=<%= rs[i].track_id %>"> <%= rs[i].title %></a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No tracks are entered into the Track database table.
+    <% } %>
+</div>
+
+<br />>><a href="/track/insert">Insert New Track</a><<
+
+
+<% include ../partials/footer.ejs %>

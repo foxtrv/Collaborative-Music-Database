@@ -1,0 +1,40 @@
+<% include ../partials/header.ejs %>
+<% if(rs.length > 0) { %>
+<h1>Playlist Info</h1>
+
+<table border="1">
+    <tr><th>Playlist Name</th><th>Number of Tracks</th></tr>
+    <tr><td><%= rs[0].name %></td><td><%= trackResults2[0].num_tracks %></td></tr>
+</table>
+
+<% if(trackResults.length > 0) { %>
+<br /><h1>Tracks</h1>
+<table border="1">
+    <tr><th>Track</th><th>Artist</th><th>Added By User</th></tr>
+    <% for (var i=0; trackResults.length > i; i++) { %>
+    <tr>
+        <% var track = trackResults[i].track; %>
+        <% var artist = trackResults[i].artist; %>
+        <% var username = trackResults[i].username; %>
+
+        <td><%= track %></td>
+        <td><%= artist %></td>
+        <td><%= username %></td>
+    </tr>
+    <% } %>
+</table>
+<% } %>
+
+<% if(trackResults.length == 0) { %>
+<table border="1">
+    <tr><th>You do not have any tracks in this playlist yet.</th></tr>
+<% } %>
+
+
+<% } else { %>
+    No playlist matched the name "<%= name %>"
+<% } %>
+
+<br /><a href="/playlist/create">Create New Playlist</a>
+
+<% include ../partials/footer.ejs %>
